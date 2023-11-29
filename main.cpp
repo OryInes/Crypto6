@@ -6,21 +6,17 @@ using namespace std;
 int main() {
     cout << "Entrez le texte à chiffrer : ";
     string texte;
-    getline(cin, texte);
+    getline(cin, texte); // lire la chaîne dev caractères entrée par l'utilisateur
 
-    cout << "Entrez la clé A : ";
-    int cleA;
-    cin >> cleA;
-
-    cout << "Entrez la clé B : ";
-    int cleB;
-    cin >> cleB;
+    cout << "Entrez la clé : ";
+    int cle;
+    cin >> cle;
 
     string texteChiffre;
     for (int i = 0; i < texte.length(); i++) {
         char lettre = texte[i];
         int code = lettre - 'a';
-        int codeChiffre = (cleA * code + cleB) % 26;
+        int codeChiffre = (code + cle) % 26;
         lettre = 'a' + codeChiffre;
         texteChiffre += lettre;
     }
